@@ -1,0 +1,9 @@
+Package: com.amooose.disablelongpress
+Name: Disable LongPress Apollo
+Depends: mobilesubstrate
+Version: 0.0.2
+Architecture: iphoneos-arm
+Description: Removes longpress from Apollo
+Maintainer: Dylan (amooose)
+Author: Dylan (amooose)
+Section: Tweaks
