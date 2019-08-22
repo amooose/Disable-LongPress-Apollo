@@ -1,13 +1,21 @@
 #import <UIKit/UIKit.h>
-
 @interface ApolloLongPressGestureRecognizer: UILongPressGestureRecognizer
 @end
 
+BOOL tabBarGestureLoaded = NO;
 
 %hook ApolloLongPressGestureRecognizer
 
 - (id)initWithTarget:(id)target action:(SEL)runAction {
-    return self;
+    
+    //Allow only the first gesture initialization, tabBar is first initialized.
+    if(!tabBarGestureLoaded){
+        tabBarGestureLoaded = YES;
+        return %orig(target, runAction);
+    } else {
+        return self;
+    }
+
 }
 
 %end
